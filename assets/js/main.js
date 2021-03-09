@@ -1,15 +1,12 @@
 var bombsArray = []
 var safeArray = []
-
-
-
-
 var maxNumber = levelDifficult(prompt("inserisci difficolta scegli tra (easy) (medium) (hard)"))
-console.log(maxNumber);
+
+
 
 // creo array con 16 numeri diversi
 bombsArray = createBombs(bombsArray, maxNumber)
-console.log(bombsArray);
+
 
 // stampo il punteggio
 var punteggio = game(bombsArray, safeArray, maxNumber)
@@ -31,7 +28,7 @@ function createBombs(array, max) {
     return array
 }
 
-// contare da 1 a 100 - 16
+// contare da 1 a maxNumber - 16
 function game(bombsArray, safeArray, maxNumber) {
     while (safeArray.length < maxNumber - 16) {
         var numeroUtente = parseInt(prompt("inserisci un numero da 1 a 100"))
