@@ -1,22 +1,11 @@
 var bombsArray = []
-var maxNumber = 100
 var safeArray = []
 
 
-switch (levelDifficult(prompt("scegli la difficolta tra (easy)(medium)(hard)"))) {
-    case "easy":
-        var maxNumber = 100
-        break;
-    case "medium":
-        var maxNumber = 80
-    case "hard":
-        var maxNumber = 50
-        break;
-    default:
-        break;
-}
 
 
+var maxNumber = levelDifficult(prompt("inserisci difficolta scegli tra (easy) (medium) (hard)"))
+console.log(maxNumber);
 
 // creo array con 16 numeri diversi
 bombsArray = createBombs(bombsArray, maxNumber)
@@ -46,7 +35,7 @@ function createBombs(array, max) {
 function game(bombsArray, safeArray, maxNumber) {
     while (safeArray.length < maxNumber - 16) {
         var numeroUtente = parseInt(prompt("inserisci un numero da 1 a 100"))
-        if (!isNaN(numeroUtente) && 1 <= numeroUtente && numeroUtente <= 100) {
+        if (!isNaN(numeroUtente) && 1 <= numeroUtente && numeroUtente <= maxNumber) {
             if (safeArray.includes(numeroUtente)) {
                 console.log("non puoi inserire piu volte lo stesso numero");
             } else if (!bombsArray.includes(numeroUtente)) {
@@ -76,13 +65,21 @@ function randomNumberInRange(min, max) {
 // controllo livello difficolta
 function levelDifficult(inserisciDifficolta) {
 
-    if (inserisciDifficolta == "easy") {
-        return "easy"
-    } else if (inserisciDifficolta == "medium") {
-        return "medium"
-    } else if (inserisciDifficolta == "hard") {
-        return "hard"
-    } else {
-        return "non hai inserito la difficolta"
+    switch (inserisciDifficolta) {
+        case "easy":
+            alert("hai scelto la modalita EASY dovrai scegliere i numeri da 1 a 100 dei quali 16 saranno bombe, BUON GAME")
+            return maxNumber = parseInt(100);
+
+        case "medium":
+            alert("hai scelto la modalita EASY dovrai scegliere i numeri da 1 a 80 dei quali 16 saranno bombe, BUON GAME")
+            return maxNumber = parseInt(80);
+
+        case "hard":
+            alert("hai scelto la modalita EASY dovrai scegliere i numeri da 1 a 50 dei quali 16 saranno bombe, BUON GAME")
+            return maxNumber = parseInt(50);
+        default:
+            return levelDifficult(prompt("inserisci difficolta"))
+
     }
+
 }
