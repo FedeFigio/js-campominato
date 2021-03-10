@@ -3,8 +3,6 @@ var safeArray = []
 
 var maxNumber = levelDifficult(prompt("inserisci difficolta scegli tra (easy) (medium) (hard)"))
 
-
-
 var containerDOM = document.querySelector(".container")
 var div;
 
@@ -12,6 +10,7 @@ var div;
 // creo array con 16 numeri diversi
 bombsArray = createBombs(bombsArray, maxNumber)
 console.log(bombsArray);
+
 var punteggio = 0
 for (let i = 1; i <= maxNumber; i++) {
     div = document.createElement("DIV")
@@ -47,6 +46,8 @@ function createBombs(array, max) {
     return array
 }
 
+
+// ALTERNATIVA AL CLICK SULLE CASELLE
 // contare da 1 a maxNumber - 16
 // function game(bombsArray, safeArray, maxNumber) {
 //     while (safeArray.length < maxNumber - 16) {
@@ -84,12 +85,15 @@ function levelDifficult(inserisciDifficolta) {
     switch (inserisciDifficolta) {
         case "easy":
             alert("hai scelto la modalita EASY dovrai scegliere i numeri da 1 a 100 dei quali 16 saranno bombe, BUON GAME")
+            alert("CLICCA SULLE CASELLE E SPERA DI NON BECCARE LE BOMBE... BUON GAME")
             return 100;
         case "medium":
             alert("hai scelto la modalita MEDIUM dovrai scegliere i numeri da 1 a 80 dei quali 16 saranno bombe, BUON GAME")
+            alert("CLICCA SULLE CASELLE E SPERA DI NON BECCARE LE BOMBE... BUON GAME")
             return 80
         case "hard":
             alert("hai scelto la modalita HARD dovrai scegliere i numeri da 1 a 50 dei quali 16 saranno bombe, BUON GAME")
+            alert("CLICCA SULLE CASELLE E SPERA DI NON BECCARE LE BOMBE... BUON GAME")
             return 50
         default:
             return levelDifficult(prompt("inserisci difficolta scegli tra (easy) (medium) (hard)"))
