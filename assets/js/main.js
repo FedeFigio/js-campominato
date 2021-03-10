@@ -24,7 +24,9 @@ for (let i = 1; i <= maxNumber; i++) {
         }
     })
     containerDOM.appendChild(div)
+
 }
+
 
 // stampo il punteggio
 // var punteggio = game(bombsArray, safeArray, maxNumber)
